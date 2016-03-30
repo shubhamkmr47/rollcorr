@@ -24,6 +24,13 @@ $(function() {
   //optional, requires jquery-ui.
   $("#plotdiv").resizable()    
 });
+
+$(function() {
+  var req = $("#framediv").rplot("helloworld").fail(function(){
+    alert(req.responseText);
+  }); 
+});
+
 </script>
 
 <style>
@@ -44,6 +51,7 @@ $(function() {
   <p>This is an example of a minimal OpenCPU app.</p>
   
   <div id="plotdiv"></div>
+  <div id="framediv"></div>
   
 </body>
 </html>
