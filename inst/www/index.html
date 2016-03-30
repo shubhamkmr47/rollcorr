@@ -26,9 +26,10 @@ $(function() {
 });
 
 $(function() {
-  var req = $("#framediv").rpc("helloworld").fail(function(){
+  var req = $("#framediv").r_fun_ajax("helloworld").fail(function(){
     alert(req.responseText);
-  }); 
+  });
+  $("#framediv").resizable() 
 });
 
 </script>
