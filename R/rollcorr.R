@@ -36,14 +36,46 @@ rollcorr <- function(){
   # plot(rolcor~index(dat0), ty = "l",lwd = lwd1, xlab = "Time",ylab = "Average Correlation", main = "Two Weeks Rolling Correlation")
   # plot(dat[1:n,4,10]~index(dat0), ty = "l", lwd = lwd1, xlab = "Time", ylab = "SPY Price Level",main ="SPY Price Level")
   # invisible();
-
-  x <- c(1:5); y <- x # create some data 
-par(pch=22, col="red") # plotting symbol and color 
-par(mfrow=c(2,4)) # all plots on one page 
-opts = c("p","l","o","b","c","s","S","h") 
-for(i in 1:length(opts)){ 
-  heading = paste("type=",opts[i]) 
-  plot(x, y, type="n", main=heading) 
-  lines(x, y, type=opts[i]) 
+### loading packages
+if (!require("gplots")) {
+install.packages("gplots", dependencies = TRUE)
+library(gplots)
 }
+if (!require("lattice")) {
+install.packages("lattice", dependencies = TRUE)
+library(lattice)
+}
+### loading data
+data(AirPassengers)
+### converting data
+rowcolNames <- list(as.character(1949:1960), month.abb)
+air_data <- matrix(AirPassengers,
+ncol = 12,
+byrow = TRUE,
+dimnames = rowcolNames)
+### drawing heat maps
+pdf("firstHeatmaps.pdf")
+# 1) Air Passengers #1
+print(levelplot(air_data,
+col.regions=heat.colors,
+xlab = "year",
+ylab = "month",
+main = "Air Passengers #1"))
+# 2) Air Passengers #2
+heatmap.2(air_data,
+trace = "none",
+density.info = "none",
+xlab = "month",
+ylab = "year",
+main = "Air Passengers #2")
+# 3) Air Passengers #3
+heatmap.2(air_data,
+trace = "none",
+xlab = "month",
+ylab = "year",
+main = "Air Passengers #3",
+density.info = "histogram",
+dendrogram = "column",
+keysize = 1.8)
+dev.off()
 }
