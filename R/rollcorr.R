@@ -23,5 +23,5 @@ heatmap.2(air_data,
           density.info = "none",
           xlab = "month",
           ylab = "year",
-          main = "Heatmap")
+          main = "Heatmap using opencpu")
 }
