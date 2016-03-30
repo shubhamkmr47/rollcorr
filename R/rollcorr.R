@@ -35,8 +35,9 @@ rollcorr <- function(){
   
   # plot(rolcor~index(dat0), ty = "l",lwd = lwd1, xlab = "Time",ylab = "Average Correlation", main = "Two Weeks Rolling Correlation")
   # plot(dat[1:n,4,10]~index(dat0), ty = "l", lwd = lwd1, xlab = "Time", ylab = "SPY Price Level",main ="SPY Price Level")
-  library(VennDiagram)
-  draw.single.venn(22, category = "Dog People", lty = "blank", fill = "cornflower blue", 
-  alpha = 0.5)
-  invisible();
+  # library(VennDiagram)
+  # draw.single.venn(22, category = "Dog People", lty = "blank", fill = "cornflower blue", 
+  # alpha = 0.5)
+  # invisible();
+  print("Hello Shubham")
 }
