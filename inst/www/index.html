@@ -26,7 +26,7 @@ $(function() {
 });
 
 $(function() {
-  var req = $("#framediv").rplot("helloworld").fail(function(){
+  var req = $("#framediv").rpc("helloworld").fail(function(){
     alert(req.responseText);
   }); 
 });
