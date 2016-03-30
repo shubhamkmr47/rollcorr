@@ -1,4 +1,4 @@
 helloworld <- function(){
 
-	print("Hello Shubham")
+	cat("Hello Shubham")
 }
