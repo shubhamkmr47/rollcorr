@@ -25,10 +25,16 @@ rollcorr <- function(){
 #           ylab = "year",
 #           main = "Heatmap using opencpu")
 
-if (!require("party")) {
-  install.packages("party", dependencies = TRUE)
-  library(gplots)
-}
-iris_ctree <- ctree(Species ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width, data=iris)
-plot(iris_ctree)
+# if (!require("party")) {
+#   install.packages("party", dependencies = TRUE)
+#   library(gplots)
+# }
+# iris_ctree <- ctree(Species ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width, data=iris)
+# plot(iris_ctree)
+
+idx <- sample(1:dim(iris)[1], 40)
+irisSample <- iris[idx,]
+irisSample$Species <- NULL
+hc <- hclust(dist(irisSample), method="ave")
+plot(hc, hang = -1, labels=iris$Species[idx], main = "Heirarichal Clustering", xlab = "IRIS dataset")
 }
