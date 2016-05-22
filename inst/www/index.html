@@ -17,17 +17,33 @@
 <script>
 //on page ready:
 $(function() {
-  var req = $("#plotdiv").rplot("heirarichalclustering").fail(function(){
+  var req = $("#plotdiv").rplot("rollcorr").fail(function(){
     alert(req.responseText);
   });
   
   //optional, requires jquery-ui.
   $("#plotdiv").resizable()    
 });
+
+$(function() {
+  var req = $("#heatmap").rplot("rollcorr").fail(function(){
+    alert(req.responseText);
+  });
+  
+  //optional, requires jquery-ui.
+  $("#heatmap").resizable()    
+});
 </script>
 
 <style>
 #plotdiv {
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 900px;
+  height: 600px;
+  border: solid gray 1px;
+}
+#heatmap {
   margin-left: 10px;
   margin-top: 10px;
   width: 900px;
@@ -42,6 +58,7 @@ $(function() {
   <h1>Helikar Labs</h1>
   
   <div id="plotdiv"></div>
+  <div id="heatmap"></div>
 
 </body>
 </html>
