@@ -1,6 +1,8 @@
 
 rollcorr <- function(){
   
+library(d3heatmap)
+
 ### loading data
 data(AirPassengers)
 ### converting data
@@ -10,9 +12,7 @@ air_data <- matrix(AirPassengers,
                    byrow = TRUE,
                    dimnames = rowcolNames)
 ### drawing heat maps
-heatmap(air_data,
-          trace = "none",
-          density.info = "none",
+d3heatmap(air_data,
           xlab = "month",
           ylab = "year",
           main = "Heatmap using opencpu")
