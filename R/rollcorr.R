@@ -1,5 +1,5 @@
 
-rollcorr <- function(){
+heirarichalclustering <- function(){
   
 # if (!require("gplots")) {
 #   install.packages("gplots", dependencies = TRUE)
