@@ -1,14 +1,6 @@
 
 rollcorr <- function(){
   
-if (!require("gplots")) {
-  install.packages("gplots", dependencies = TRUE)
-  library(gplots)
-}
-if (!require("lattice")) {
-  install.packages("lattice", dependencies = TRUE)
-  library(lattice)
-}
 ### loading data
 data(AirPassengers)
 ### converting data
@@ -18,7 +10,7 @@ air_data <- matrix(AirPassengers,
                    byrow = TRUE,
                    dimnames = rowcolNames)
 ### drawing heat maps
-heatmap.2(air_data,
+heatmap(air_data,
           trace = "none",
           density.info = "none",
           xlab = "month",
