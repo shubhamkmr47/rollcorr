@@ -1,8 +1,11 @@
 
 rollcorr <- function(){
-  
-library(d3heatmap)
 
+if (!require("d3heatmap")) {
+  install.packages("d3heatmap", dependencies = TRUE)
+  library(d3heatmap)
+}
+  
 ### loading data
 data(AirPassengers)
 ### converting data
