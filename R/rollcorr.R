@@ -47,4 +47,4 @@ plot(hc, hang = -1, labels=iris$Species[idx], main = "Heirarichal Clustering", x
 # d <- diamonds[sample(nrow(diamonds), 1000), ];
 # p <- plot_ly(d, x = carat, y = price, text = paste("Clarity: ", clarity), mode = "markers", color = carat, size = carat)
 # p
-# }
+}
