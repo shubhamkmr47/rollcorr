@@ -25,14 +25,6 @@ $(function() {
   $("#plotdiv").resizable()    
 });
 
-$(function() {
-  var req = $("#heatmap").rplot("rollcorr").fail(function(){
-    alert(req.responseText);
-  });
-  
-  //optional, requires jquery-ui.
-  $("#heatmap").resizable()    
-});
 </script>
 
 <style>
