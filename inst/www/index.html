@@ -24,10 +24,27 @@ $(function() {
   //optional, requires jquery-ui.
   $("#plotdiv").resizable()    
 });
+
+$(function() {
+  var req = $("#hclustplotdiv").rplot("heirarichalclustering").fail(function(){
+    alert(req.responseText);
+  });
+  
+  //optional, requires jquery-ui.
+  $("#hclustplotdiv").resizable()    
+});
 </script>
 
 <style>
 #plotdiv {
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 900px;
+  height: 600px;
+  border: solid gray 1px;
+}
+
+#hclustplotdiv {
   margin-left: 10px;
   margin-top: 10px;
   width: 900px;
@@ -42,6 +59,7 @@ $(function() {
   <h1>Helikar Labs</h1>
   
   <div id="plotdiv"></div>
+  <div id="hclustplotdiv"></div>
 
 </body>
 </html>
