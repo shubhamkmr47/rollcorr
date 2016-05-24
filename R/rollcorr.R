@@ -11,7 +11,7 @@ if (!require("RJSONIO")) {
   library(RJSONIO)
 }
   
-json_file <-  '["age (y)":24,"height (cm)":182,"wieght (kg)":74.8},
+json_file <-  '[{"age (y)":24,"height (cm)":182,"wieght (kg)":74.8},
     {"age (y)":30,"height (cm)":170,"wieght (kg)":70.1},
     {"age (y)":41,"height (cm)":169,"wieght (kg)":60},
     {"age (y)":22,"height (cm)":183,"wieght (kg)":75},
