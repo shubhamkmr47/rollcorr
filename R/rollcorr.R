@@ -29,8 +29,6 @@ json_file <- lapply(json_file, function(x) {
 
 data <- do.call("rbind", json_file)
 data <- data.frame(data)
- df[!(is.na(df$start_pc) | $start_pc==""), ]
-
 
 ### drawing heat maps
 heatmap(data,
