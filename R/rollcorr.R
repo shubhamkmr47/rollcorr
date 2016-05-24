@@ -28,6 +28,7 @@ json_file <- lapply(json_file, function(x) {
 })
 
 data <- do.call("rbind", json_file)
+data <- data.matrix(data)
 
 ### drawing heat maps
 heatmap(data,
