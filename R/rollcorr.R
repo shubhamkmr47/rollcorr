@@ -11,13 +11,13 @@ if (!require("RJSONIO")) {
   library(RJSONIO)
 }
   
-json_file <-  '["age (y)":24,"height (cm)":182,"wieght (kg)":74.8,"score":null},
-    {"age (y)":30,"height (cm)":170,"wieght (kg)":70.1,"score":500},
-    {"age (y)":41,"height (cm)":169,"wieght (kg)":60,"score":null},
-    {"age (y)":22,"height (cm)":183,"wieght (kg)":75,"score":865},
-    {"age (y)":31,"height (cm)":178,"wieght (kg)":83.9,"score":221},
-    {"age (y)":35,"height (cm)":172,"wieght (kg)":76.2,"score":413},
-    {"age (y)":22,"height (cm)":164,"wieght (kg)":68,"score":902}]'
+json_file <-  '["age (y)":24,"height (cm)":182,"wieght (kg)":74.8},
+    {"age (y)":30,"height (cm)":170,"wieght (kg)":70.1},
+    {"age (y)":41,"height (cm)":169,"wieght (kg)":60},
+    {"age (y)":22,"height (cm)":183,"wieght (kg)":75},
+    {"age (y)":31,"height (cm)":178,"wieght (kg)":83.9},
+    {"age (y)":35,"height (cm)":172,"wieght (kg)":76.2},
+    {"age (y)":22,"height (cm)":164,"wieght (kg)":68}]'
 
 
 json_file <- fromJSON(json_file)
@@ -28,7 +28,9 @@ json_file <- lapply(json_file, function(x) {
 })
 
 data <- do.call("rbind", json_file)
-data <- data.matrix(data)
+data <- data.frame(data)
+ df[!(is.na(df$start_pc) | $start_pc==""), ]
+
 
 ### drawing heat maps
 heatmap(data,
