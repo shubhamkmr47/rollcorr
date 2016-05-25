@@ -20,7 +20,7 @@ var json_file = '[{"age (y)":24,"height (cm)":182,"wieght (kg)":74.8}, {"age (y)
 
 //on page ready:
 $(function() {
-  var req = $("#plotdiv").rplot("rollcorr", json_file: json_file).fail(function(){
+  var req = $("#plotdiv").rplot("rollcorr", {json_file: json_file}).fail(function(){
     alert(req.responseText);
   });
   
