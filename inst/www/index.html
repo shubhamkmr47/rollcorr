@@ -33,6 +33,17 @@ $(function() {
   //optional, requires jquery-ui.
   $("#hclustplotdiv").resizable()    
 });
+
+$(function() {
+  var req = $("#decisiontreediv").rplot("decisiontree").fail(function(){
+    alert(req.responseText);
+  });
+  
+  //optional, requires jquery-ui.
+  $("#decisiontreediv").resizable()    
+});
+
+
 </script>
 
 <style>
@@ -51,6 +62,14 @@ $(function() {
   height: 600px;
   border: solid gray 1px;
 }
+
+#decisiontreediv {
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 900px;
+  height: 600px;
+  border: solid gray 1px;
+}
 </style>
 </head>
 
@@ -60,6 +79,7 @@ $(function() {
   
   <div id="plotdiv"></div>
   <div id="hclustplotdiv"></div>
+  <div id="decisiontreediv"></div>
 
 </body>
 </html>
