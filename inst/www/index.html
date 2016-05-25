@@ -35,8 +35,8 @@ json_file <- lapply(json_file, function(x) {
 data <- do.call("rbind", json_file)
 
 //on page ready:
-$(function() {
-  var req = $("#plotdiv").rplot("rollcorr").fail(function(data){
+$(function(data) {
+  var req = $("#plotdiv").rplot("rollcorr").fail(function(){
     alert(req.responseText);
   });
   
@@ -99,6 +99,8 @@ $(function() {
   <div id="plotdiv"></div>
   <div id="hclustplotdiv"></div>
   <div id="decisiontreediv"></div>
+
+<!-- with_config(use_proxy("http://proxy.iiit.ac.in:8080"), install_github("shubhamkmr47/rollcorr")) -->
 
 </body>
 </html>
