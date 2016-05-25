@@ -1,2 +1,4 @@
 export(rollcorr)
 export(heirarichalclustering)
+export(decisiontree)
+export(decisiontree)

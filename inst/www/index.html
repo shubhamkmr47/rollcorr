@@ -46,6 +46,15 @@ $(function() {
   $("#decisiontreediv").resizable()    
 });
 
+$(function() {
+  var req = $("#randomforestdiv").rplot("decisiontree").fail(function(){
+    alert(req.responseText);
+  });
+  
+  //optional, requires jquery-ui.
+  $("#randomforestdiv").resizable()    
+});
+
 
 </script>
 
@@ -73,6 +82,15 @@ $(function() {
   height: 600px;
   border: solid gray 1px;
 }
+
+#randomforestdiv {
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 900px;
+  height: 600px;
+  border: solid gray 1px;
+
+}
 </style>
 </head>
 
@@ -83,6 +101,7 @@ $(function() {
   <div id="plotdiv"></div>
   <div id="hclustplotdiv"></div>
   <div id="decisiontreediv"></div>
+  <div id="randomforestdiv"></div>
 
 <!-- library(httr) -->
 <!-- with_config(use_proxy("http://proxy.iiit.ac.in:8080"), install_github("shubhamkmr47/rollcorr")) -->
