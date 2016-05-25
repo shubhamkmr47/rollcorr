@@ -11,6 +11,14 @@ if (!require("RJSONIO")) {
   library(RJSONIO)
 }
   
+json_file <- fromJSON(json_file)
+
+json_file <- lapply(json_file, function(x) {
+    x[sapply(x, is.null)] <- NA
+    unlist(x)
+})
+
+data <- do.call("rbind", json_file)
 data <- data.matrix(data)
 
 ### drawing heat maps
