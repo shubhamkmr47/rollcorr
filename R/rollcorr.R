@@ -1,5 +1,5 @@
 
-rollcorr <- function(data){
+rollcorr <- function(json_file){
 
 if (!require("d3heatmap")) {
   install.packages("d3heatmap", dependencies = TRUE)
