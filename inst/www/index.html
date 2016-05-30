@@ -56,14 +56,16 @@ $(function() {
 });
 
 //call R function: stats::sd(x=data)
-var req = ocpu.rpc("dendogram", function(output){
-    alert("please!!");
-    alert("Standard Deviation equals: " + output);
-});
-//alert("working");
-//optional
-req.fail(function(){
-    alert("R returned an error: " + req.responseText);
+$(function(){
+    var req = ocpu.rpc("dendogram", function(output){
+        alert("please!!");
+        alert("Standard Deviation equals: " + output);
+    });
+    //alert("working");
+    //optional
+    req.fail(function(){
+        alert("R returned an error: " + req.responseText);
+    });
 });
 
 
