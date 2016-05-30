@@ -1,5 +1,5 @@
 
 dendogram <- function(mydata){
 
-  return("dendogram")
+  return(mydata)
 }
