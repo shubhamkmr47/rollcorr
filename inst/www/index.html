@@ -1,123 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Heatmap</title>
+<html>
+  <head>
+    <title>Hello</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Include order: first jquery, then opencpu.js, and then your code -->
+    <script src="opencpu/jquery-1.10.2.min.js"></script>
+    <script src="opencpu/opencpu-0.4.js"></script>
+    <script>
+    //init this script when the page has loaded
+    $(document).ready(function(){
+      $("#submitbutton").on("click", function(){
+        //disable the button to prevent multiple clicks
+        $("#submitbutton").attr("disabled", "disabled");
 
-<!-- ocpu library -->
-<script src="jquery-1.10.2.min.js"> </script>
-<script src="opencpu-0.4.js"> </script>
+        //read the value for 'myname'
+        var myname = $("#namefield").val();
 
-<!-- optional stuff for the resizable widget -->
-<link href="jqueryui/css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet" media="screen">
-<script src="jqueryui/jquery-ui-1.10.3.custom.js"> </script>
+        //perform the request
+        var req = ocpu.rpc("hello", {
+          myname : myname
+        }, function(output){
+          $("#output").text(output.message);
+        });
 
-<script>
+        //if R returns an error, alert the error message
+        req.fail(function(){
+          alert("Server error: " + req.responseText);
+        });
 
-var json_file = '[{"age (y)":24,"height (cm)":182,"wieght (kg)":74.8}, {"age (y)":30,"height (cm)":170,"wieght (kg)":70.1}, {"age (y)":41,"height (cm)":169,"wieght (kg)":60}, {"age (y)":22,"height (cm)":183,"wieght (kg)":75}, {"age (y)":31,"height (cm)":178,"wieght (kg)":83.9}, {"age (y)":35,"height (cm)":172,"wieght (kg)":76.2}, {"age (y)":22,"height (cm)":164,"wieght (kg)":68}]';
-
-//on page ready:
-$(function() {
-  var req = $("#plotdiv").rplot("rollcorr", {json_file: json_file}).fail(function(){
-    alert(req.responseText);
-  });
-
-  //optional, requires jquery-ui.
-  $("#plotdiv").resizable()
-});
-
-$(function() {
-  var req = $("#hclustplotdiv").rplot("heirarichalclustering").fail(function(){
-    alert(req.responseText);
-  });
-
-  //optional, requires jquery-ui.
-  $("#hclustplotdiv").resizable()
-});
-
-$(function() {
-  var req = $("#decisiontreediv").rplot("decisiontree").fail(function(){
-    alert(req.responseText);
-  });
-
-  //optional, requires jquery-ui.
-  $("#decisiontreediv").resizable()
-});
-
-$(function() {
-  var req = $("#randomforestdiv").rplot("decisiontree").fail(function(){
-    alert(req.responseText);
-  });
-
-  //optional, requires jquery-ui.
-  $("#randomforestdiv").resizable()
-});
-
-//call R function: stats::sd(x=data)
-$(function(){
-    var req = ocpu.rpc("dendogram", function(output){
-        console.log("please!!");
-        alert("Standard Deviation equals: " + output);
+        //after request complete, re-enable the button
+        req.always(function(){
+          $("#submitbutton").removeAttr("disabled")
+        });
+      });
     });
-    alert("working");
-    //optional
-    req.fail(function(){
-        alert("R returned an error: " + req.responseText);
-    });
-});
+    </script>
 
+    <style>
+      #output{
+        height: 80px;
+        width: 500px;
+        border: 1px solid gray;
+        padding: 3px;
+      }
+    </style>
 
-</script>
+  </head>
 
-<style>
-#plotdiv {
-  margin-left: 10px;
-  margin-top: 10px;
-  width: 900px;
-  height: 600px;
-  border: solid gray 1px;
-}
+  <body>
+    <h1>Hello, world!</h1>
 
-#hclustplotdiv {
-  margin-left: 10px;
-  margin-top: 10px;
-  width: 900px;
-  height: 600px;
-  border: solid gray 1px;
-}
+    <b>Your name: </b> <input type="text" id="namefield">
 
-#decisiontreediv {
-  margin-left: 10px;
-  margin-top: 10px;
-  width: 900px;
-  height: 600px;
-  border: solid gray 1px;
-}
+    <button id="submitbutton" type="button">Submit to server!</button>
 
-#randomforestdiv {
-  margin-left: 10px;
-  margin-top: 10px;
-  width: 900px;
-  height: 600px;
-  border: solid gray 1px;
+    <p id="output"></p>
 
-}
-</style>
-</head>
+    <br />
 
-<body>
+    <p>
+     This is a basic JSON RPC call to OpenCPU. We use <tt>ocpu.rpc</tt> from the <tt>opencpu.js</tt> library to call the R function called <tt>hello</tt> included in this R package.
+    </p>
 
-  <h1>Helikar Labs</h1>
+    <p>Have a look at the HTML source code! Some things to notice:</p>
+    <ul>
+      <li>We can always see the source code of the R function using the API, e.g <a href="../R/hello">here</a>.</li>
+      <li>If the R function has a manual page, it we can find it <a href="../man/hello">here</a></li>
+      <li>When the name field is empty, the R function raises an error. Notice how we deal with this in javascript.</li>
+    </ul>
 
-  <div id="plotdiv"></div>
-  <div id="hclustplotdiv"></div>
-  <div id="decisiontreediv"></div>
-  <div id="randomforestdiv"></div>
-
-<!-- library(httr) -->
-<!-- with_config(use_proxy("http://proxy.iiit.ac.in:8080"), install_github("shubhamkmr47/rollcorr")) -->
-
-</body>
+  </body>
 </html>
