@@ -58,7 +58,7 @@ $(function() {
 //call R function: stats::sd(x=data)
 $(function(){
     var req = ocpu.rpc("dendogram", function(output){
-        alert("please!!");
+        console.log("please!!");
         alert("Standard Deviation equals: " + output);
     });
     alert("working");
