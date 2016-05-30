@@ -23,36 +23,36 @@ $(function() {
   var req = $("#plotdiv").rplot("rollcorr", {json_file: json_file}).fail(function(){
     alert(req.responseText);
   });
-  
+
   //optional, requires jquery-ui.
-  $("#plotdiv").resizable()    
+  $("#plotdiv").resizable()
 });
 
 $(function() {
   var req = $("#hclustplotdiv").rplot("heirarichalclustering").fail(function(){
     alert(req.responseText);
   });
-  
+
   //optional, requires jquery-ui.
-  $("#hclustplotdiv").resizable()    
+  $("#hclustplotdiv").resizable()
 });
 
 $(function() {
   var req = $("#decisiontreediv").rplot("decisiontree").fail(function(){
     alert(req.responseText);
   });
-  
+
   //optional, requires jquery-ui.
-  $("#decisiontreediv").resizable()    
+  $("#decisiontreediv").resizable()
 });
 
 $(function() {
   var req = $("#randomforestdiv").rplot("decisiontree").fail(function(){
     alert(req.responseText);
   });
-  
+
   //optional, requires jquery-ui.
-  $("#randomforestdiv").resizable()    
+  $("#randomforestdiv").resizable()
 });
 
 
@@ -95,9 +95,9 @@ $(function() {
 </head>
 
 <body>
-  
+
   <h1>Helikar Labs</h1>
-  
+
   <div id="plotdiv"></div>
   <div id="hclustplotdiv"></div>
   <div id="decisiontreediv"></div>
